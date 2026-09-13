@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="hi" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>महादेव किराना स्टोर - सोजत</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            800: '#1e40af',
+                            900: '#1e3a8a',
+                        }
+                    },
+                    fontFamily: {
+                         sans: ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts for Hindi clarity -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans Devanagari', 'Poppins', sans-serif;
+        }
+        /* Custom smooth scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-blue-500 selection:text-white">
+
+    <!-- Header Section -->
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Logo -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-12 h-12 rounded-xl bg-blue-600 flex items-center justify-center text-white text-2xl shadow-md group-hover:bg-blue-700 transition-colors">
+                        🛒
+                    </div>
+                    <div>
+                        <span class="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight block">महादेव किराना स्टोर</span>
+                        <span class="text-xs text-slate-500 font-medium block">नया बस स्टैंड, सोजत</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden md:flex items-center gap-8 font-medium text-slate-600">
+                    <a href="#home" class="hover:text-blue-600 transition-colors">होम</a>
+                    <a href="#categories" class="hover:text-blue-600 transition-colors">कैटेगरी</a>
+                    <a href="#products" class="hover:text-blue-600 transition-colors">प्रोडक्ट्स</a>
+                    <a href="#offers" class="hover:text-blue-600 transition-colors">ऑफर्स</a>
+                    <a href="#about" class="hover:text-blue-600 transition-colors">हमारे बारे में</a>
+                    <a href="#contact" class="hover:text-blue-600 transition-colors">संपर्क</a>
+                </nav>
+
+                <!-- Action Buttons (Cart & Mobile Menu Toggle) -->
+                <div class="flex items-center gap-3">
+                    <!-- Cart Button -->
+                    <button onclick="toggleCartModal()" class="relative bg-blue-50 hover:bg-blue-100 text-blue-600 px-4 py-2.5 rounded-xl font-semibold flex items-center gap-2 transition-all shadow-sm">
+                        <i class="fa-solid fa-cart-shopping text-lg"></i>
+                        <span class="hidden sm:inline">कार्ट</span>
+                        <span id="cart-badge" class="absolute -top-2 -right-2 bg-red-500 text-white text-xs w-6 h-6 rounded-full flex items-center justify-center font-bold shadow-md scale-100 transition-transform">0</span>
+                    </button>
+
+                    <!-- Mobile Hamburger Menu Button -->
+                    <button onclick="toggleMobileMenu()" class="md:hidden p-2.5 rounded-xl bg-slate-100 text-slate-700 hover:bg-slate-200 transition-colors">
+                        <i id="menu-icon" class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Dropdown Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-6 space-y-3 shadow-lg">
+            <a href="#home" onclick="toggleMobileMenu()" class="block py-2.5 px-4 rounded-lg hover:bg-blue-50 hover:text-blue-600 font-medium transition-colors">होम</a>
+            <a href="#categories" onclick="toggleMobileMenu()" class="block py-2.5 px-4 rounded-lg hover:bg-blue-50 hover:text-blue-600 font-medium transition-colors">कैटेगरी</a>
+            <a href="#products" onclick="toggleMobileMenu()" class="block py-2.5 px-4 rounded-lg hover:bg-blue-50 hover:text-blue-600 font-medium transition-colors">प्रोडक्ट्स</a>
+            <a href="#offers" onclick="toggleMobileMenu()" class="block py-2.5 px-4 rounded-lg hover:bg-blue-50 hover:text-blue-600 font-medium transition-colors">ऑफर्स</a>
+            <a href="#about" onclick="toggleMobileMenu()" class="block py-2.5 px-4 rounded-lg hover:bg-blue-50 hover:text-blue-600 font-medium transition-colors">हमारे बारे में</a>
+            <a href="#contact" onclick="toggleMobileMenu()" class="block py-2.5 px-4 rounded-lg hover:bg-blue-50 hover:text-blue-600 font-medium transition-colors">संपर्क</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-900 text-white py-16 sm:py-24 overflow-hidden">
+        <!-- Decorative background elements -->
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 bg-blue-700/60 border border-blue-400/30 px-4 py-1.5 rounded-full text-sm font-medium backdrop-blur-sm">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                        दुकान खुली है • समय: सुबह 9:00 से रात 9:00
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
+                        “महादेव किराना स्टोर”
+                    </h1>
+                    <p class="text-lg sm:text-2xl text-blue-100 font-medium max-w-xl mx-auto lg:mx-0">
+                        आपकी रोज़मर्रा की जरूरतों का भरोसेमंद साथी
+                    </p>
+                    <div class="flex items-center justify-center lg:justify-start gap-2 text-blue-200 text-sm sm:text-base">
+                        <i class="fa-solid fa-location-dot text-amber-400"></i>
+                        <span>नया बस स्टैंड, डांगल जिम के सामने, सोजत, राजस्थान</span>
+                    </div>
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                        <a href="#products" class="w-full sm:w-auto bg-amber-500 hover:bg-amber-600 text-slate-900 font-bold px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-3 text-lg">
+                            <i class="fa-solid fa-bag-shopping"></i> खरीदारी शुरू करें
+                        </a>
+                        <a href="https://wa.me/919950275534?text=नमस्ते%20महादेव%20किराना%20स्टोर,%20मुझे%20कुछ%20सामान%20चाहिए।" target="_blank" class="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-3 text-lg">
+                            <i class="fa-brands fa-whatsapp text-2xl"></i> WhatsApp पर ऑर्डर करें
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Hero Feature Banner / Illustration Card -->
+                <div class="flex justify-center">
+                    <div class="w-full max-w-md bg-white/10 backdrop-blur-md border border-white/20 p-6 sm:p-8 rounded-3xl shadow-2xl space-y-6">
+                        <div class="text-center space-y-2">
+                            <div class="w-20 h-20 bg-amber-500 text-slate-900 text-4xl rounded-2xl mx-auto flex items-center justify-center shadow-md">
+                                🏪
+                            </div>
+                            <h3 class="text-xl font-bold">शुद्धता और विश्वास</h3>
+                            <p class="text-sm text-blue-200">सबसे किफायती दाम और बेहतरीन गुणवत्ता का सामान सीधे आपके द्वार या दुकान पर उपलब्ध।</p>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4 pt-2">
+                            <div class="bg-blue-950/40 p-4 rounded-2xl border border-blue-500/20 text-center">
+                                <i class="fa-solid fa-truck-fast text-amber-400 text-2xl mb-2"></i>
+                                <h4 class="font-semibold text-sm">फ़ास्ट सर्विस</h4>
+                                <p class="text-xs text-blue-300">तुरंत तैयारी</p>
+                            </div>
+                            <div class="bg-blue-950/40 p-4 rounded-2xl border border-blue-500/20 text-center">
+                                <i class="fa-solid fa-indian-rupee-sign text-amber-400 text-2xl mb-2"></i>
+                                <h4 class="font-semibold text-sm">उचित मूल्य</h4>
+                                <p class="text-xs text-blue-300">गारंटीड बचत</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section id="categories" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-blue-600 font-semibold text-sm uppercase tracking-wider bg-blue-50 px-3 py-1 rounded-full">विविध श्रेणियाँ</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-2">श्रेणियाँ</h2>
+                <p class="text-slate-600 mt-2">अपनी आवश्यकता के अनुसार सामान चुनें</p>
+            </div>
+
+            <!-- Categories Grid -->
+            <div id="categories-container" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-6">
+                <!-- Injected dynamically via JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="py-16 bg-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
+                <div>
+                    <span class="text-blue-600 font-semibold text-sm uppercase tracking-wider bg-blue-100 px-3 py-1 rounded-full">बेस्ट सेलिंग</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-2">लोकप्रिय सामान</h2>
+                    <p class="text-slate-600 mt-1">दैनिक उपयोग का उच्च गुणवत्ता वाला किराना सामान</p>
+                </div>
+                
+                <!-- Search Bar -->
+                <div class="w-full md:w-80 relative">
+                    <span class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400">
+                        <i class="fa-solid fa-search"></i>
+                    </span>
+                    <input type="text" id="product-search" oninput="filterProducts()" placeholder="सामान खोजें..." class="w-full pl-11 pr-4 py-3 bg-white border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-600 text-slate-800 placeholder-slate-400 shadow-sm">
+                </div>
+            </div>
+
+            <!-- Category filter tags -->
+            <div id="category-filter-tags" class="flex items-center gap-2 overflow-x-auto pb-4 mb-8 scrollbar-none">
+                <button onclick="filterByCategory('all')" id="cat-btn-all" class="category-filter-btn px-4 py-2 rounded-xl text-sm font-semibold whitespace-nowrap bg-blue-600 text-white shadow-sm transition-all">सभी</button>
+                <!-- Dynamic category tags will appear here -->
+            </div>
+
+            <!-- Products Grid -->
+            <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <!-- Injected dynamically via JS -->
+            </div>
+
+            <!-- No Products Found State -->
+            <div id="no-products" class="hidden text-center py-16">
+                <div class="text-5xl mb-4">🔍</div>
+                <h3 class="text-xl font-bold text-slate-800">कोई सामान नहीं मिला</h3>
+                <p class="text-slate-500 mt-1">कृपया दूसरा कीवर्ड खोजें या सभी कैटेगरी देखें।</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Offers Section -->
+    <section id="offers" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-amber-600 font-semibold text-sm uppercase tracking-wider bg-amber-50 px-3 py-1 rounded-full">बचत ऑफर</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-2">आज के खास ऑफर</h2>
+                <p class="text-slate-600 mt-2">विशेष छूट और बेहतरीन डील्स का लाभ उठाएं</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Offer Card 1 -->
+                <div class="bg-gradient-to-br from-blue-600 to-indigo-700 text-white p-6 rounded-3xl shadow-lg relative overflow-hidden flex flex-col justify-between">
+                    <div class="absolute -right-6 -bottom-6 text-white/10 text-8xl font-black">🏷️</div>
+                    <div class="space-y-3 relative z-10">
+                        <span class="bg-amber-400 text-slate-900 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">विशेष छूट</span>
+                        <h3 class="text-xl font-bold">चुनिंदा सामान पर विशेष छूट</h3>
+                        <p class="text-blue-100 text-sm">दाल, मसाले और तेल पर बेहतरीन डिस्काउंट। आज ही बचत करें।</p>
+                    </div>
+                    <div class="mt-6 relative z-10">
+                        <a href="#products" class="inline-flex items-center gap-2 text-amber-300 font-bold hover:text-white transition-colors">
+                            <span>ऑफर का लाभ लें</span> <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Offer Card 2 -->
+                <div class="bg-gradient-to-br from-amber-500 to-amber-700 text-slate-900 p-6 rounded-3xl shadow-lg relative overflow-hidden flex flex-col justify-between">
+                    <div class="absolute -right-6 -bottom-6 text-black/10 text-8xl font-black">🎁</div>
+                    <div class="space-y-3 relative z-10">
+                        <span class="bg-slate-900 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">बंपर ऑफर</span>
+                        <h3 class="text-xl font-bold">₹500+ खरीदारी पर विशेष ऑफर</h3>
+                        <p class="text-slate-900/90 text-sm font-medium">₹500 से अधिक की कुल खरीदारी पर विशेष छूट या उपहार प्राप्त करें।</p>
+                    </div>
+                    <div class="mt-6 relative z-10">
+                        <a href="#products" class="inline-flex items-center gap-2 text-slate-900 font-bold hover:underline">
+                            <span>सामान चुनें</span> <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Offer Card 3 -->
+                <div class="bg-gradient-to-br from-emerald-600 to-teal-800 text-white p-6 rounded-3xl shadow-lg relative overflow-hidden flex flex-col justify-between">
+                    <div class="absolute -right-6 -bottom-6 text-white/10 text-8xl font-black">🛍️</div>
+                    <div class="space-y-3 relative z-10">
+                        <span class="bg-white/20 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">फैमिली पैक</span>
+                        <h3 class="text-xl font-bold">परिवार के लिए Grocery Combo</h3>
+                        <p class="text-emerald-100 text-sm">आटा, चावल, चीनी और तेल का कंबो पैक सबसे कम कीमत में।</p>
+                    </div>
+                    <div class="mt-6 relative z-10">
+                        <a href="#products" class="inline-flex items-center gap-2 text-amber-300 font-bold hover:text-white transition-colors">
+                            <span>कंबो देखें</span> <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Offer Card 4 -->
+                <div class="bg-gradient-to-br from-purple-600 to-indigo-800 text-white p-6 rounded-3xl shadow-lg relative overflow-hidden flex flex-col justify-between">
+                    <div class="absolute -right-6 -bottom-6 text-white/10 text-8xl font-black">⭐</div>
+                    <div class="space-y-3 relative z-10">
+                        <span class="bg-amber-400 text-slate-900 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">वीकेंड</span>
+                        <h3 class="text-xl font-bold">Weekend Special Offer</h3>
+                        <p class="text-purple-100 text-sm">सप्ताहांत पर स्नैक्स, पेय पदार्थ और दैनिक वस्तुओं पर अतिरिक्त छूट।</p>
+                    </div>
+                    <div class="mt-6 relative z-10">
+                        <a href="#products" class="inline-flex items-center gap-2 text-amber-300 font-bold hover:text-white transition-colors">
+                            <span>अभी खरीदें</span> <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="py-16 bg-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-blue-600 font-semibold text-sm uppercase tracking-wider bg-blue-100 px-3 py-1 rounded-full">हमारी विशेषता</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-2">महादेव किराना स्टोर क्यों?</h2>
+                <p class="text-slate-600 mt-2">ग्राहकों की पहली पसंद क्यों है हमारा स्टोर</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Feature 1 -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-200 text-center space-y-4 hover:shadow-md transition-shadow">
+                    <div class="w-16 h-16 bg-blue-50 text-blue-600 text-2xl rounded-2xl mx-auto flex items-center justify-center font-bold">
+                        ✅
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900">भरोसेमंद सामान</h3>
+                    <p class="text-slate-600 text-sm">हमेशा शुद्ध, ताज़ा और बेहतरीन क्वालिटी का ब्रांडेड व खुला सामान।</p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-200 text-center space-y-4 hover:shadow-md transition-shadow">
+                    <div class="w-16 h-16 bg-emerald-50 text-emerald-600 text-2xl rounded-2xl mx-auto flex items-center justify-center font-bold">
+                        💰
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900">उचित कीमत</h3>
+                    <p class="text-slate-600 text-sm">बाजार में सबसे किफायती दाम, जिससे आपकी हर खरीदारी पर बचत हो।</p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-200 text-center space-y-4 hover:shadow-md transition-shadow">
+                    <div class="w-16 h-16 bg-amber-50 text-amber-600 text-2xl rounded-2xl mx-auto flex items-center justify-center font-bold">
+                        🛍️
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900">रोज़मर्रा का पूरा सामान</h3>
+                    <p class="text-slate-600 text-sm">आटा, चावल, मसाले, डेयरी और स्नैक्स सब कुछ एक ही छत के नीचे उपलब्ध।</p>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-200 text-center space-y-4 hover:shadow-md transition-shadow">
+                    <div class="w-16 h-16 bg-purple-50 text-purple-600 text-2xl rounded-2xl mx-auto flex items-center justify-center font-bold">
+                        📱
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900">आसान WhatsApp ऑर्डर</h3>
+                    <p class="text-slate-600 text-sm">दुकान आने की जरूरत नहीं, WhatsApp पर लिस्ट भेजें और झटपट ऑर्डर तैयार करवाएं।</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Store & Location & Hours -->
+    <section id="about" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                
+                <!-- About description -->
+                <div class="space-y-6">
+                    <span class="text-blue-600 font-semibold text-sm uppercase tracking-wider bg-blue-50 px-3 py-1 rounded-full">हमारे बारे में</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900">महादेव किराना स्टोर, सोजत</h2>
+                    <p class="text-slate-700 leading-relaxed text-lg">
+                        महादेव किराना स्टोर सोजत में रोज़मर्रा की जरूरतों का सामान उपलब्ध कराने वाला स्थानीय किराना स्टोर है। हमारा उद्देश्य ग्राहकों को भरोसेमंद सामान, उचित कीमत और बेहतर सेवा प्रदान करना है।
+                    </p>
+                    <div class="flex items-center gap-4 pt-2">
+                        <div class="flex items-center gap-3 bg-slate-50 p-4 rounded-2xl border border-slate-200">
+                            <span class="text-2xl">📍</span>
+                            <div>
+                                <h4 class="font-bold text-slate-900">पता</h4>
+                                <p class="text-xs text-slate-600">नया बस स्टैंड, डांगल जिम के सामने, सोजत</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3 bg-slate-50 p-4 rounded-2xl border border-slate-200">
+                            <span class="text-2xl">📞</span>
+                            <div>
+                                <h4 class="font-bold text-slate-900">संपर्क</h4>
+                                <p class="text-xs text-slate-600">9950275534</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Opening Hours & Location Card -->
+                <div class="bg-gradient-to-br from-slate-900 to-blue-950 text-white p-8 rounded-3xl shadow-xl space-y-6">
+                    <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center text-xl">
+                                🕘
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold">दुकान का समय</h3>
+                                <p class="text-xs text-slate-400">सप्ताह के सातों दिन खुला है</p>
+                            </div>
+                        </div>
+                        <span class="bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 px-3 py-1 rounded-full text-xs font-semibold">Open Now</span>
+                    </div>
+
+                    <div class="space-y-3">
+                        <div class="flex justify-between items-center bg-white/5 p-3.5 rounded-xl">
+                            <span class="text-slate-300 font-medium">समय</span>
+                            <span class="font-bold text-amber-400">सुबह 9:00 बजे — रात 9:00 बजे</span>
+                        </div>
+                        <div class="flex justify-between items-center bg-white/5 p-3.5 rounded-xl">
+                            <span class="text-slate-300 font-medium">दिन</span>
+                            <span class="font-bold text-white">सोमवार से रविवार (सातों दिन)</span>
+                        </div>
+                    </div>
+
+                    <div class="pt-2">
+                        <a href="https://maps.google.com/?q=New+Bus+Stand+Sojat" target="_blank" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3.5 rounded-xl shadow-md flex items-center justify-center gap-2 transition-all">
+                            <i class="fa-solid fa-map-location-dot"></i> Google Maps पर रास्ता देखें
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-slate-100 border-t border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="max-w-2xl mx-auto space-y-6">
+                <span class="text-blue-600 font-semibold text-sm uppercase tracking-wider bg-blue-100 px-3 py-1 rounded-full">सहायता</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900">हमसे संपर्क करें</h2>
+                <p class="text-slate-600">किसी भी सामान की जानकारी या ऑर्डर के लिए सीधे संपर्क करें</p>
+                
+                <div class="text-2xl sm:text-3xl font-bold text-slate-900">
+                    <i class="fa-solid fa-phone text-blue-600 mr-2"></i> 9950275534
+                </div>
+
+                <div class="flex flex-wrap items-center justify-center gap-4 pt-4">
+                    <a href="tel:9950275534" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-6 py-3.5 rounded-xl shadow-md flex items-center gap-2 transition-all">
+                        <i class="fa-solid fa-phone"></i> कॉल करें
+                    </a>
+                    <a href="https://wa.me/919950275534?text=नमस्ते%20महादेव%20किराना%20स्टोर,%20मुझे%20सहायता%20चाहिए।" target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-6 py-3.5 rounded-xl shadow-md flex items-center gap-2 transition-all">
+                        <i class="fa-brands fa-whatsapp text-xl"></i> WhatsApp करें
+                    </a>
+                    <a href="https://maps.google.com/?q=New+Bus+Stand+Sojat" target="_blank" class="bg-slate-800 hover:bg-slate-900 text-white font-bold px-6 py-3.5 rounded-xl shadow-md flex items-center gap-2 transition-all">
+                        <i class="fa-solid fa-location-dot"></i> लोकेशन देखें
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8 items-center">
+                <div class="space-y-3">
+                    <div class="flex items-center gap-3">
+                        <span class="text-3xl">🛒</span>
+                        <span class="text-xl font-bold text-white">महादेव किराना स्टोर</span>
+                    </div>
+                    <p class="text-sm text-slate-400">आपकी रोज़मर्रा की जरूरतों का भरोसेमंद साथी। नया बस स्टैंड, डांगल जिम के सामने, सोजत, राजस्थान।</p>
+                </div>
+
+                <div class="flex flex-wrap justify-center gap-6 font-medium text-slate-300">
+                    <a href="#home" class="hover:text-white transition-colors">होम</a>
+                    <a href="#products" class="hover:text-white transition-colors">प्रोडक्ट्स</a>
+                    <a href="#offers" class="hover:text-white transition-colors">ऑफर्स</a>
+                    <a href="#contact" class="hover:text-white transition-colors">संपर्क</a>
+                </div>
+
+                <div class="text-center md:text-right">
+                    <p class="text-sm text-slate-400">WhatsApp / Phone:</p>
+                    <a href="tel:9950275534" class="text-white font-bold text-lg hover:text-blue-400 transition-colors">9950275534</a>
+                </div>
+            </div>
+
+            <div class="border-t border-slate-800 pt-6 text-center text-sm text-slate-500">
+                <p>© 2026 महादेव किराना स्टोर. सर्वाधिकार सुरक्षित।</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Shopping Cart Modal Slide-over -->
+    <div id="cart-modal" class="fixed inset-0 z-50 overflow-hidden hidden" aria-labelledby="slide-over-title" role="dialog" aria-modal="true">
+        <div class="absolute inset-0 bg-slate-900/60 backdrop-blur-sm transition-opacity" onclick="toggleCartModal()"></div>
+
+        <div class="fixed inset-y-0 right-0 max-w-full flex pl-10">
+            <div class="w-screen max-w-md bg-white shadow-2xl flex flex-col">
+                <!-- Cart Header -->
+                <div class="p-6 bg-slate-900 text-white flex items-center justify-between">
+                    <div class="flex items-center gap-3">
+                        <span class="text-2xl">🛒</span>
+                        <h2 class="text-lg font-bold">आपकी शॉपिंग कार्ट</h2>
+                    </div>
+                    <button onclick="toggleCartModal()" class="w-10 h-10 rounded-xl bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors">
+                        <i class="fa-solid fa-xmark text-lg"></i>
+                    </button>
+                </div>
+
+                <!-- Cart Items Container -->
+                <div id="cart-items" class="flex-1 overflow-y-auto p-6 space-y-4 divide-y divide-slate-100">
+                    <!-- Injected dynamically via JS -->
+                </div>
+
+                <!-- Cart Footer Summary & WhatsApp Order Button -->
+                <div class="p-6 bg-slate-50 border-t border-slate-200 space-y-4">
+                    <div class="space-y-2">
+                        <div class="flex justify-between text-slate-600 text-sm">
+                            <span>कुल वस्तुएं (Items):</span>
+                            <span id="cart-total-items" class="font-bold text-slate-900">0</span>
+                        </div>
+                        <div class="flex justify-between text-lg font-bold text-slate-900 pt-2 border-t border-slate-200">
+                            <span>कुल राशि (Total):</span>
+                            <span id="cart-total-amount" class="text-blue-600">₹0</span>
+                        </div>
+                    </div>
+
+                    <!-- WhatsApp Order Button -->
+                    <button onclick="sendWhatsAppOrder()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-4 rounded-xl shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-3 text-lg">
+                        <i class="fa-brands fa-whatsapp text-2xl"></i> WhatsApp पर ऑर्डर करें
+                    </button>
+                    <button onclick="clearCart()" class="w-full bg-slate-200 hover:bg-slate-300 text-slate-700 font-semibold py-2.5 rounded-xl transition-colors text-sm">
+                        कार्ट खाली करें
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Data and Functions -->
+    <script>
+        // Categories Data
+        const categoriesData = [
+            { id: 'all', name: 'सभी', icon: '🏪' },
+            { id: 'grains', name: 'आटा और अनाज', icon: '🌾' },
+            { id: 'rice-dal', name: 'चावल और दाल', icon: '🍚' },
+            { id: 'spices', name: 'मसाले', icon: '🌶️' },
+            { id: 'dairy', name: 'डेयरी', icon: '🥛' },
+            { id: 'snacks', name: 'बिस्किट और स्नैक्स', icon: '🍪' },
+            { id: 'beverages', name: 'पेय पदार्थ', icon: '🥤' },
+            { id: 'personal', name: 'पर्सनल केयर', icon: '🧴' },
+            { id: 'cleaning', name: 'होम क्लीनिंग', icon: '🧹' },
+            { id: 'sweets', name: 'चॉकलेट और मिठाई', icon: '🍫' },
+            { id: 'daily', name: 'रोज़मर्रा का सामान', icon: '🛒' }
+        ];
+
+        // Products Data (Easily editable by store owner)
+        const productsData = [
+            { id: 1, name: 'गेहूं का आटा (Shreshtha)', category: 'grains', quantity: '5 kg', price: 240, originalPrice: 270, image: 'https://placehold.co/400x400/f8fafc/1e293b?text=आटा+5kg', tag: 'लोकप्रिय' },
+            { id: 2, name: 'बासमती चावल (Premium)', category: 'rice-dal', quantity: '5 kg', price: 350, originalPrice: 400, image: 'https://placehold.co/400x400/f8fafc/1e293b?text=चावल+5kg', tag: 'ऑफर' },
+            { id: 3, name: 'तूर दाल (Cleaned)', category: 'rice-dal', quantity: '1 kg', price: 145, originalPrice: 160, image: 'https://placehold.co/400x400/f8fafc/1e293b?text=तूर+दाल+1kg', tag: '' },
+            { id: 4, name: 'चना दाल', category: 'rice-dal', quantity: '1 kg', price: 85, originalPrice: 95, image: 'https://placehold.co/400x400/f8fafc/1e293b?text=चना+दाल+1kg', tag: '' },
+            { id: 5, name: 'आयोडीन नमक (Salt)', category: 'daily', quantity: '1 kg', price: 28, originalPrice: 30, image: 'https://placehold.co/400x400/f8fafc/1e293b?text=नमक+1kg', tag: '' },
+            { id: 6, name: 'शुद्ध चीनी (Sugar)', category: 'daily', quantity: '1 kg', price: 44, originalPrice: 48, image: 'https://placehold.co/400x400/f8fafc/1e293b?text=चीनी+1kg', tag: '' },
+            { id: 7, name: 'चाय पत्ती (Tea Leaf)', category: 'beverages', quantity: '250 g', price: 130, originalPrice: 150, image: 'https://placehold.co/400x400/f8fafc/1e293b?text=चाय+250g', tag: 'खास' },
+            { id: 8, name: 'बिस्किट पैक (Parle-G/GoodDay)', category: 'snacks', quantity: '1 Packet', price: 20, originalPrice: 25, image: 'https://placehold.co/400x400/f8fafc/1e293b?text=बिस्किट', tag: '' },
+            { id: 9, name: 'स्वादिष्ट नमकीन (Namkeen)', category: 'snacks', quantity: '400 g', price: 90, originalPrice: 100, image: 'https://placehold.co/400x400/f8fafc/1e293b?text=नमकीन', tag: '' },
+            { id: 10, name: 'स्नान साबुन (Bath Soap)', category: 'personal', quantity: '1 Piece', price: 35, originalPrice: 40, image: 'https://placehold.co/400x400/f8fafc/1e293b?text=साबुन', tag: '' },
+            { id: 11, name: 'वाशिंग डिटर्जेंट पाउडर', category: 'cleaning', quantity: '1 kg', price: 95, originalPrice: 110, image: 'https://placehold.co/400x400/f8fafc/1e293b?text=डिटर्जेंट+1kg', tag: '' },
+            { id: 12, name: 'टूथपेस्ट (Toothpaste)', category: 'personal', quantity: '150 g', price: 98, originalPrice: 110, image: 'https://placehold.co/400x400/f8fafc/1e293b?text=टूथपेस्ट', tag: '' },
+            { id: 13, name: 'दूध (Packaged Milk)', category: 'dairy', quantity: '1 Litre', price: 34, originalPrice: 34, image: 'https://placehold.co/400x400/f8fafc/1e293b?text=दूध+1L', tag: 'ताज़ा' },
+            { id: 14, name: 'गरम मसाला (Mixed Spices)', category: 'spices', quantity: '100 g', price: 75, originalPrice: 90, image: 'https://placehold.co/400x400/f8fafc/1e293b?text=मसाले+100g', tag: '' },
+            { id: 15, name: 'कोल्ड ड्रिंक (Cold Drink)', category: 'beverages', quantity: '1.25 L', price: 75, originalPrice: 90, image: 'https://placehold.co/400x400/f8fafc/1e293b?text=कोल्ड+ड्रिंक', tag: '' },
+            { id: 16, name: 'चौकरयुक्त गेहूं का आटा', category: 'grains', quantity: '10 kg', price: 460, originalPrice: 520, image: 'https://placehold.co/400x400/f8fafc/1e293b?text=आटा+10kg', tag: 'बचत' }
+        ];
+
+        // Shopping Cart State
+        let cart = [];
+        let currentActiveCategory = 'all';
+
+        // Render Categories on Page Load
+        function renderCategories() {
+            const container = document.getElementById('categories-container');
+            const tagsContainer = document.getElementById('category-filter-tags');
+            
+            let categoriesHTML = '';
+            let tagsHTML = `<button onclick="filterByCategory('all')" id="cat-btn-all" class="category-filter-btn px-4 py-2 rounded-xl text-sm font-semibold whitespace-nowrap bg-blue-600 text-white shadow-sm transition-all">सभी</button>`;
+
+            categoriesData.filter(c => c.id !== 'all').forEach(cat => {
+                categoriesHTML += `
+                    <div onclick="selectCategoryAndScroll('${cat.id}')" class="bg-slate-50 hover:bg-blue-50 border border-slate-200 hover:border-blue-300 p-6 rounded-3xl text-center cursor-pointer transition-all group shadow-sm hover:shadow-md">
+                        <div class="text-4xl mb-3 group-hover:scale-110 transition-transform">${cat.icon}</div>
+                        <h3 class="font-bold text-slate-800 group-hover:text-blue-600 text-sm sm:text-base">${cat.name}</h3>
+                    </div>
+                `;
+
+                tagsHTML += `
+                    <button onclick="filterByCategory('${cat.id}')" id="cat-btn-${cat.id}" class="category-filter-btn px-4 py-2 rounded-xl text-sm font-semibold whitespace-nowrap bg-white hover:bg-slate-100 text-slate-700 border border-slate-200 shadow-sm transition-all">${cat.name}</button>
+                `;
+            });
+
+            container.innerHTML = categoriesHTML;
+            tagsContainer.innerHTML = tagsHTML;
+        }
+
+        function selectCategoryAndScroll(catId) {
+            filterByCategory(catId);
+            const element = document.getElementById('products');
+            element.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Render Products Grid
+        function renderProducts(productsToRender) {
+            const grid = document.getElementById('products-grid');
+            const noProducts = document.getElementById('no-products');
+
+            if (productsToRender.length === 0) {
+                grid.innerHTML = '';
+                noProducts.classList.remove('hidden');
+                return;
+            }
+
+            noProducts.classList.add('hidden');
+            let html = '';
+
+            productsToRender.forEach(product => {
+                let discountPercent = Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100);
+                
+                html += `
+                    <div class="bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+                        <div class="relative bg-slate-50 p-4 flex items-center justify-center overflow-hidden">
+                            ${product.tag ? `<span class="absolute top-3 left-3 bg-amber-500 text-slate-900 text-xs font-bold px-2.5 py-1 rounded-full shadow-sm z-10">${product.tag}</span>` : ''}
+                            ${discountPercent > 0 ? `<span class="absolute top-3 right-3 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full shadow-sm z-10">${discountPercent}% छूट</span>` : ''}
+                            <img src="${product.image}" alt="${product.name}" class="w-36 h-36 object-contain group-hover:scale-105 transition-transform" onerror="this.src='https://placehold.co/400x400/f8fafc/1e293b?text=किराना'">
+                        </div>
+                        <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
+                            <div>
+                                <span class="text-xs text-slate-400 font-medium">${product.quantity}</span>
+                                <h3 class="font-bold text-slate-900 text-lg mt-0.5 leading-snug">${product.name}</h3>
+                            </div>
+                            <div class="flex items-baseline justify-between pt-2 border-t border-slate-100">
+                                <div>
+                                    <span class="text-xl font-extrabold text-slate-900">₹${product.price}</span>
+                                    ${product.originalPrice > product.price ? `<span class="text-xs text-slate-400 line-through ml-1.5">₹${product.originalPrice}</span>` : ''}
+                                </div>
+                                <button onclick="addToCart(${product.id})" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2.5 rounded-xl font-semibold text-sm shadow-sm hover:shadow transition-all flex items-center gap-1.5 active:scale-95">
+                                    <i class="fa-solid fa-plus text-xs"></i> कार्ट में जोड़ें
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+
+            grid.innerHTML = html;
+        }
+
+        // Filter by Category
+        function filterByCategory(categoryId) {
+            currentActiveCategory = categoryId;
+            
+            // Update active state on filter buttons
+            document.querySelectorAll('.category-filter-btn').forEach(btn => {
+                btn.classList.remove('bg-blue-600', 'text-white');
+                btn.classList.add('bg-white', 'hover:bg-slate-100', 'text-slate-700', 'border', 'border-slate-200');
+            });
+
+            const activeBtn = document.getElementById(`cat-btn-${categoryId}`);
+            if (activeBtn) {
+                activeBtn.classList.remove('bg-white', 'hover:bg-slate-100', 'text-slate-700', 'border', 'border-slate-200');
+                activeBtn.classList.add('bg-blue-600', 'text-white');
+            }
+
+            const searchQuery = document.getElementById('product-search').value.toLowerCase();
+            applyFilters(searchQuery, categoryId);
+        }
+
+        // Live Search Handler
+        function filterProducts() {
+            const searchQuery = document.getElementById('product-search').value.toLowerCase();
+            applyFilters(searchQuery, currentActiveCategory);
+        }
+
+        function applyFilters(searchQuery, categoryId) {
+            let filtered = productsData;
+
+            if (categoryId !== 'all') {
+                filtered = filtered.filter(p => p.category === categoryId);
+            }
+
+            if (searchQuery.trim() !== '') {
+                filtered = filtered.filter(p => p.name.toLowerCase().includes(searchQuery));
+            }
+
+            renderProducts(filtered);
+        }
+
+        // Cart Functions
+        function toggleCartModal() {
+            const modal = document.getElementById('cart-modal');
+            modal.classList.toggle('hidden');
+        }
+
+        function addToCart(productId) {
+            const product = productsData.find(p => p.id === productId);
+            if (!product) return;
+
+            const existingItem = cart.find(item => item.id === productId);
+            if (existingItem) {
+                existingItem.qty += 1;
+            } else {
+                cart.push({ ...product, qty: 1 });
+            }
+
+            updateCartUI();
+            
+            // Subtle badge pulse animation
+            const badge = document.getElementById('cart-badge');
+            badge.classList.add('scale-125');
+            setTimeout(() => badge.classList.remove('scale-125'), 200);
+        }
+
+        function updateQuantity(productId, change) {
+            const item = cart.find(i => i.id === productId);
+            if (!item) return;
+
+            item.qty += change;
+            if (item.qty <= 0) {
+                cart = cart.filter(i => i.id !== productId);
+            }
+
+            updateCartUI();
+        }
+
+        function removeFromCart(productId) {
+            cart = cart.filter(i => i.id !== productId);
+            updateCartUI();
+        }
+
+        function clearCart() {
+            cart = [];
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            const cartItemsContainer = document.getElementById('cart-items');
+            const cartBadge = document.getElementById('cart-badge');
+            const totalItemsEl = document.getElementById('cart-total-items');
+            const totalAmountEl = document.getElementById('cart-total-amount');
+
+            let totalItems = 0;
+            let totalAmount = 0;
+
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = `
+                    <div class="text-center py-16 text-slate-400 space-y-3">
+                        <div class="text-5xl">🛒</div>
+                        <p class="font-medium">आपकी कार्ट खाली है</p>
+                        <p class="text-xs">पसंदीदा सामान जोड़ने के लिए प्रोडक्ट्स देखें।</p>
+                    </div>
+                `;
+            } else {
+                let html = '';
+                cart.forEach(item => {
+                    let itemTotal = item.price * item.qty;
+                    totalItems += item.qty;
+                    totalAmount += itemTotal;
+
+                    html += `
+                        <div class="py-4 flex items-center justify-between gap-4">
+                            <div class="flex-1">
+                                <h4 class="font-bold text-slate-900 text-sm">${item.name}</h4>
+                                <span class="text-xs text-slate-500">${item.quantity} • ₹${item.price} each</span>
+                            </div>
+                            <div class="flex items-center gap-2 bg-slate-100 p-1.5 rounded-xl">
+                                <button onclick="updateQuantity(${item.id}, -1)" class="w-7 h-7 bg-white rounded-lg shadow-sm text-slate-700 font-bold hover:bg-slate-200 transition-colors flex items-center justify-center">-</button>
+                                <span class="w-6 text-center font-bold text-sm">${item.qty}</span>
+                                <button onclick="updateQuantity(${item.id}, 1)" class="w-7 h-7 bg-white rounded-lg shadow-sm text-slate-700 font-bold hover:bg-slate-200 transition-colors flex items-center justify-center">+</button>
+                            </div>
+                            <div class="text-right min-w-[60px]">
+                                <span class="font-bold text-slate-900 text-sm">₹${itemTotal}</span>
+                            </div>
+                            <button onclick="removeFromCart(${item.id})" class="text-slate-400 hover:text-red-500 transition-colors p-1">
+                                <i class="fa-solid fa-trash-can text-sm"></i>
+                            </button>
+                        </div>
+                    `;
+                });
+                cartItemsContainer.innerHTML = html;
+            }
+
+            cartBadge.innerText = totalItems;
+            totalItemsEl.innerText = totalItems;
+            totalAmountEl.innerText = `₹${totalAmount}`;
+        }
+
+        // WhatsApp Order System Integration
+        function sendWhatsAppOrder() {
+            if (cart.length === 0) {
+                alert('कृपया ऑर्डर देने के लिए पहले कार्ट में कुछ सामान जोड़ें!');
+                return;
+            }
+
+            let message = "नमस्ते महादेव किराना स्टोर,%0Aमहादेव किराना स्टोर में नया ऑर्डर:%0A%0A";
+            
+            let totalAmount = 0;
+            cart.forEach((item, index) => {
+                let itemTotal = item.price * item.qty;
+                totalAmount += itemTotal;
+                message += `${index + 1}. ${item.name} (${item.quantity}) - ${item.qty} पीस - ₹${itemTotal}%0A`;
+            });
+
+            message += `%0Aकुल राशि: ₹${totalAmount}%0A%0Aकृपया मेरा ऑर्डर स्वीकार करें।`;
+
+            const whatsappNumber = "9950275534";
+            const whatsappURL = `https://wa.me/91${whatsappNumber}?text=${message}`;
+
+            window.open(whatsappURL, '_blank');
+        }
+
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('menu-icon');
+            menu.classList.toggle('hidden');
+            if (menu.classList.contains('hidden')) {
+                icon.className = 'fa-solid fa-bars text-xl';
+            } else {
+                icon.className = 'fa-solid fa-xmark text-xl';
+            }
+        }
+
+        // Initial Page Render on Load
+        window.onload = function() {
+            renderCategories();
+            renderProducts(productsData);
+        };
+    </script>
+</body>
+</html>
